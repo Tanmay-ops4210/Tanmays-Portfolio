@@ -1,10 +1,24 @@
 /* ================= LENIS ================= */
-const lenis = new Lenis({ smooth: true });
+const lenis = new Lenis({ 
+  smooth: true,
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+});
+
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
+
+// Integrate Lenis with ScrollTrigger
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 /* ================= LOADER ================= */
 gsap.to(".loader", {
@@ -89,45 +103,40 @@ gsap.to(".img-3", {
 });
 
 /* ================= HORIZONTAL SCROLL ================= */
-// Only enable horizontal scroll on desktop (screen width > 768px)
-if (window.innerWidth > 768) {
-  gsap.to(".horizontal-track", {
-    xPercent: -300,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".horizontal-section",
-      pin: true,
-      scrub: 1,
-      end: "+=3000",
-    },
-  });
-}
-
 // Handle window resize to disable/enable animation
 let horizontalScrollTrigger;
 function initHorizontalScroll() {
   // Kill existing trigger if it exists
   if (horizontalScrollTrigger) {
     horizontalScrollTrigger.kill();
+    horizontalScrollTrigger = null;
   }
   
   // Only create horizontal scroll on desktop
   if (window.innerWidth > 768) {
-    horizontalScrollTrigger = gsap.to(".horizontal-track", {
-      xPercent: -300,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".horizontal-section",
-        pin: true,
-        scrub: 1,
-        end: "+=3000",
-      },
-    });
+    const horizontalSection = document.querySelector(".horizontal-section");
+    if (horizontalSection) {
+      horizontalScrollTrigger = gsap.to(".horizontal-track", {
+        xPercent: -300,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".horizontal-section",
+          pin: true,
+          scrub: 1,
+          end: "+=3000",
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }
   }
 }
 
-// Initialize on load
-initHorizontalScroll();
+// Initialize after a short delay to ensure DOM is ready
+setTimeout(() => {
+  initHorizontalScroll();
+  ScrollTrigger.refresh();
+}, 100);
 
 // Re-initialize on resize (debounced)
 let resizeTimer;
@@ -138,6 +147,21 @@ window.addEventListener("resize", () => {
     initHorizontalScroll();
   }, 250);
 });
+
+// Refresh ScrollTrigger on page load and after images load
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+  initHorizontalScroll();
+});
+
+// Refresh ScrollTrigger when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    ScrollTrigger.refresh();
+  });
+} else {
+  ScrollTrigger.refresh();
+}
 
 /* ================= FOOTER REVEAL ================= */
 gsap.from(".footer-title", {
