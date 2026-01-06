@@ -237,9 +237,21 @@ body {
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
+  /* global spacing */
+  .section {
+    padding: 12vh 7vw;
+  }
+
+  /* nav */
+  .nav-inner {
+    padding: 14px 5vw;
+  }
+
+  /* hero layout */
   .hero {
     flex-direction: column;
     text-align: center;
+    gap: 32px;
   }
 
   .hero-left {
@@ -247,7 +259,75 @@ body {
   }
 
   .hero-right {
-    margin-top: 40px;
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-circle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* image stage */
+  .image-wrap {
+    height: 60vh;
+  }
+
+  .img {
+    width: 180px;
+  }
+
+  .img-1 {
+    left: 8%;
+  }
+
+  .img-3 {
+    right: 8%;
+  }
+
+  /* projects: make vertical scroll instead of horizontal */
+  .horizontal-section {
+    height: auto;
+    overflow: visible;
+  }
+
+  .horizontal-track {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .panel {
+    min-width: 100%;
+    padding: 64px 0;
+  }
+
+  .project {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .project h3 {
+    font-size: 1.8rem;
+  }
+
+  .project p {
+    font-size: 1rem;
+  }
+
+  .project small {
+    font-size: 0.8rem;
+  }
+
+  /* footer */
+  .footer-scene {
+    padding: 40px 0 !important;
   }
 
   .footer-bottom {
