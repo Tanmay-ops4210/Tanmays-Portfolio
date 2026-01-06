@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Frontend Developer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-progress"></div>
+    <div class="nav-inner">
+      <div class="nav-logo">Tanmay Mogaveera</div>
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- LOADER -->
+  <div class="loader">
+    <span class="loader-text">LOADING</span>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" class="section hero" data-bg="#0b0b0b" data-text="#ffffff">
+
+    <!-- HERO CONTENT -->
+    <div class="hero-left">
+      <h1 class="hero-title">Creative Frontend Developer</h1>
+      <p class="hero-sub">
+        I design and build high-end, animated websites
+        that feel smooth, intentional, and memorable.
+      </p>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="hero-right">
+      <div class="hero-circle">
+        <img src="image/tanmay.png" alt="Tanmay">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- IMAGE STAGE -->
+  <section class="section image-stage" data-bg="#0f3d2e" data-text="#ffffff">
+    <div class="image-wrap">
+      <img class="img img-1" src="https://picsum.photos/600/800?1">
+      <img class="img img-2" src="https://picsum.photos/600/800?2">
+      <img class="img img-3" src="https://picsum.photos/600/800?3">
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="work" class="horizontal-section" data-bg="#0b0b0b" data-text="#ffffff">
+    <div class="horizontal-track">
+
+      <!-- PROJECT 1 -->
+      <div class="panel light project-bg" style="background-image: url('image/event.png');">
+        <div class="project">
+          <h3>EventEase</h3>
+          <p>Event management platform</p>
+          <small>HTML · CSS · JS · TypeScript · Supabase</small>
+          <a href="https://xeon-virid.vercel.app/" target="_blank">
+            View live →
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="panel green project-bg" style="background-image: url('image/food.png');">
+        <div class="project">
+          <h3>Food Donation & Waste Management</h3>
+          <p>Food donation and waste management platform</p>
+          <small>HTML · CSS · JS · TypeScript</small>
+          <a href="https://nourish-flourish-wheat.vercel.app/" target="_blank">
+            View live →
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="panel light project-bg" style="background-image: url('image/health.png');">
+        <div class="project">
+          <h3>Health Analyzer</h3>
+          <p>Health analytics platform</p>
+          <small>HTML · CSS · JS · TypeScript</small>
+          <a href="https://pythogen-health-platform.vercel.app/" target="_blank">
+            View live →
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="panel green project-bg" style="background-image: url('image/book.png');">
+        <div class="project">
+          <h3>Bus & Movie Booking</h3>
+          <p>Bus and movie ticket booking platform</p>
+          <small>HTML · CSS · JS · TypeScript</small>
+          <a href="https://seatsmart-pro.vercel.app/" target="_blank">
+            View live →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section id="contact" class="footer-scene" data-bg="#ffffff" data-text="#0b0b0b">
+    <div class="footer-inner">
+      <h2 class="footer-title">Let’s build something unforgettable</h2>
+      <p class="footer-sub">
+        Available for freelance & creative collaborations
+      </p>
+      <a href="mailto:yourmail@example.com" class="footer-btn">
+        Start a project
+      </a>
+      <div class="footer-bottom">
+        <span>© 2026 Tanmay</span>
+        <span>Built with GSAP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.6/bundled/lenis.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+:root {
+  --black: #0b0b0b;
+  --green: #0f3d2e;
+  --white: #ffffff;
+  --light-gray: #e6e6e6;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* ================= NAV ================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav-progress {
+  height: 2px;
+  width: 0%;
+  background: currentColor;
+}
+
+.nav-inner {
+  padding: 18px 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+}
+
+.nav-links a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* ================= LOADER ================= */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader-text {
+  letter-spacing: 0.2em;
+}
+
+/* ================= SECTIONS (GLOBAL) ================= */
+.section {
+  min-height: 100vh;
+  padding: 15vh 12vw;
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* hero left */
+.hero-left {
+  max-width: 55%;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 1.05;
+}
+
+.hero-sub {
+  max-width: 520px;
+  opacity: 0.75;
+  margin-top: 20px;
+}
+
+/* hero right */
+.hero-right {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-circle {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+}
+
+.hero-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= IMAGE STAGE ================= */
+.image-stage {
+  background: var(--green);
+}
+
+.image-wrap {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  position: absolute;
+  width: 260px;
+  border-radius: 12px;
+}
+
+.img-1 {
+  left: 15%;
+  transform: rotate(-6deg);
+}
+
+.img-2 {
+  z-index: 2;
+}
+
+.img-3 {
+  right: 15%;
+  transform: rotate(6deg);
+}
+
+/* ================= HORIZONTAL PROJECTS ================= */
+.horizontal-section {
+  height: 100vh;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.horizontal-track {
+  display: flex;
+  height: 100%;
+}
+
+.panel {
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel.light {
+  background: var(--light-gray);
+  color: var(--black);
+}
+
+.panel.green {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* ================= FOOTER ================= */
+.footer-scene {
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+
+  /* IMPORTANT FIX */
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-inner {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 12px;
+}
+
+.footer-sub {
+  margin-bottom: 24px;
+  opacity: 0.75;
+}
+
+.footer-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-btn:hover {
+  opacity: 0.85;
+}
+
+.footer-bottom {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    margin-top: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ===== NAV VISUAL FIX (NO LAYOUT CHANGE) ===== */
+.nav {
+  background: rgba(11,11,11,0.55);
+  backdrop-filter: blur(14px);
+}
+
+/* ===== PROJECT BACKGROUND PANELS ===== */
+.project-bg {
+  position: relative;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.project-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.panel.light.project-bg::before {
+  background: rgba(255,255,255,0.65);
+}
+
+.project {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 24px;
+}
+
+.project h3 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.project p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.project small {
+  display: block;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  opacity: 0.7;
+  margin-bottom: 28px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project a {
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.project a:hover {
+  opacity: 0.8;
+}
+
+/* ===== PROJECT BG HOVER ZOOM ===== */
+
+.project-bg {
+  background-size: 100%;
+  transition: background-size 0.8s ease;
+}
+
+.project-bg:hover {
+  background-size: 110%;
+}
+
+/* smooth text feel on hover */
+.project-bg:hover .project {
+  transform: translateY(-6px);
+  transition: transform 0.4s ease;
+}
+
+
