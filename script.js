@@ -89,15 +89,54 @@ gsap.to(".img-3", {
 });
 
 /* ================= HORIZONTAL SCROLL ================= */
-gsap.to(".horizontal-track", {
-  xPercent: -300,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".horizontal-section",
-    pin: true,
-    scrub: 1,
-    end: "+=3000",
-  },
+// Only enable horizontal scroll on desktop (screen width > 768px)
+if (window.innerWidth > 768) {
+  gsap.to(".horizontal-track", {
+    xPercent: -300,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".horizontal-section",
+      pin: true,
+      scrub: 1,
+      end: "+=3000",
+    },
+  });
+}
+
+// Handle window resize to disable/enable animation
+let horizontalScrollTrigger;
+function initHorizontalScroll() {
+  // Kill existing trigger if it exists
+  if (horizontalScrollTrigger) {
+    horizontalScrollTrigger.kill();
+  }
+  
+  // Only create horizontal scroll on desktop
+  if (window.innerWidth > 768) {
+    horizontalScrollTrigger = gsap.to(".horizontal-track", {
+      xPercent: -300,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".horizontal-section",
+        pin: true,
+        scrub: 1,
+        end: "+=3000",
+      },
+    });
+  }
+}
+
+// Initialize on load
+initHorizontalScroll();
+
+// Re-initialize on resize (debounced)
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    ScrollTrigger.refresh();
+    initHorizontalScroll();
+  }, 250);
 });
 
 /* ================= FOOTER REVEAL ================= */

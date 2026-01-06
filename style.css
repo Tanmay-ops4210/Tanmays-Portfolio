@@ -343,12 +343,15 @@ body {
     height: auto;
     overflow: visible;
     padding: 0;
+    position: relative !important;
   }
 
   .horizontal-track {
     flex-direction: column;
     height: auto;
     gap: 0;
+    transform: none !important;
+    width: 100% !important;
   }
 
   .panel {
@@ -359,6 +362,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .project-bg {
