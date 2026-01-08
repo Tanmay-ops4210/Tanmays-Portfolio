@@ -48,7 +48,8 @@ function Nav() {
         <div className="nav-logo">Tanmay Mogaveera</div>
         <nav className="nav-links">
           <a href="#hero">Home</a>
-          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -57,4 +58,3 @@ function Nav() {
 }
 
 export default Nav
-

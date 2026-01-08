@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react'
 import Nav from './components/Nav'
 import Loader from './components/Loader'
 import Hero from './components/Hero'
-import ImageStage from './components/ImageStage'
+import About from './components/About'
+import WhatIDo from './components/WhatIDo'
+import TechStack from './components/TechStack'
 import Projects from './components/Projects'
-import Footer from './components/Footer'
+import BackendCapabilities from './components/BackendCapabilities'
+import Workflow from './components/Workflow'
+import GitHub from './components/GitHub'
+import Contact from './components/Contact'
 import { useLenis } from './hooks/useLenis'
 import { useScrollAnimations } from './hooks/useScrollAnimations'
 
@@ -15,7 +20,6 @@ function App() {
   useScrollAnimations()
 
   useEffect(() => {
-    // Hide loader after animation
     const timer = setTimeout(() => {
       setLoaderVisible(false)
     }, 2000)
@@ -27,12 +31,16 @@ function App() {
       {loaderVisible && <Loader />}
       <Nav />
       <Hero />
-      <ImageStage />
+      <About />
+      <WhatIDo />
+      <TechStack />
       <Projects />
-      <Footer />
+      <BackendCapabilities />
+      <Workflow />
+      <GitHub />
+      <Contact />
     </>
   )
 }
 
 export default App
-
